@@ -1,0 +1,251 @@
+<!doctype html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TypeScript und Angular</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+  <style>
+    section {
+      text-align: left;
+    }
+
+    .vspace {
+      height: 20px;
+    }
+
+    h2, h3, h4, h5, h6 {
+      text-transform: none !important;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<div class="reveal">
+
+  <div class="slides">
+    <!-- Titel -->
+    <section>
+      <h2>
+        Reactive Web Apps <br> mit Angular2 (und Java)
+      </h2>
+
+      <div class="vspace"></div>
+      <h6>Roman Roelofsen - w11k GmbH / theCodeCampus</h6>
+
+      <p>
+        <small>
+          Twitter &amp; GitHub: <a href="https://twitter.com/romanroe">romanroe</a>
+        </small>
+      </p>
+    </section>
+
+    <!-- Über mich -->
+    <section data-markdown>
+      <!--@formatter:off-->
+      <script type="text/template">
+        ## Über mich
+        - Alpha Geek (aka Geschäftsführer)
+          - w11k GmbH
+          - theCodeCampus
+        - Agentur für Individualsoftware
+        - Fokus auf Web Engineering
+      </script>
+      <!--@formatter:on-->
+    </section>
+
+    <!-- Angular -->
+    <section>
+      <h3>Angular</h3>
+
+      <section data-markdown>
+        <!--@formatter:off-->
+      <script type="text/template">
+        - Wenn der User auf den Button clickt,
+        - sende den Inhalt eines Textfeldes an den Server,
+        - nehme das Ergebnis der Anfrage entgegen,
+        - und stelle es dar.
+      </script>
+      <!--@formatter:on-->
+      </section>
+
+    </section>
+
+    <!-- Reaktive Programmierung -->
+    <section>
+      <h3>Reaktive Programmierung</h3>
+
+      <section data-markdown>
+        <!--@formatter:off-->
+      <script type="text/template">
+        #### Wir denken in **synchronen** Schritten:
+        - Wenn der User auf den Button clickt,
+        - sende den Inhalt eines Textfeldes an den Server,
+        - nehme das Ergebnis der Anfrage entgegen,
+        - und stelle es dar.
+      </script>
+      <!--@formatter:on-->
+      </section>
+
+      <section data-markdown>
+        <!--@formatter:off-->
+      <script type="text/template">
+        #### Aber programmieren wir auch so?
+        ~~~
+        button.onclick = function () {
+
+          var text = $("#text").text();
+
+          $.post("/server", text, function (result) {
+            $("#ergebnis").text(result);
+          });
+
+        }
+        ~~~
+      </script>
+      <!--@formatter:on-->
+      </section>
+
+      <section data-markdown>
+        <!--@formatter:off-->
+      <script type="text/template">
+        #### asynchon / synchron
+        - Web Apps sind Teil einer asychronen Umgebung
+          - Server Anfragen/Antworten, User, ...
+        - Server-Logik wird zunehmend asynchron
+          - Web Sockets, Web Services, ...
+
+        #### &nbsp;
+        #### Frameworks, Bibliotheken helfen
+        - z.B. Java's Future
+        - Besser: Guava's ListenableFuture
+        - Noch besser: ReactiveX
+      </script>
+      <!--@formatter:on-->
+      </section>
+
+    </section>
+
+    <!-- ReactiveX -->
+    <section>
+      <h3>ReactiveX</h3>
+      <section data-markdown>
+        <!--@formatter:off-->
+      <script type="text/template">
+        - RxJS, Bibliothek umsprünglich entwickelt von Microsoft
+        - http://reactivex.io
+        - Implementierungen für
+          - Java, JavaScript/TypeScript, .NET, Scala, Clojure, Swift, etc.
+
+      </script>
+      <!--@formatter:on-->
+      </section>
+
+      <section data-markdown>
+        <!--@formatter:off-->
+      <script type="text/template">
+        - Observable
+          - Liefert Daten
+          ![](observable.png)
+
+        - Observer
+          - Bekommt Daten
+
+        - Subject
+          - Observable *und* Observer
+
+      </script>
+      <!--@formatter:on-->
+      </section>
+
+
+    </section>
+
+
+    <section>
+      <h3>Fazit</h3>
+      <section></section>
+
+      <section data-markdown>
+        <!--@formatter:off-->
+        <script type="text/template">
+          - Steile Lernkurve
+          - TypeScript vereint statische Typisierung mit der dynamischen JavaScript-Welt
+          - Module Loader müssen zur Laufzeit eingebunden sein (z.B. SystemJS)
+          - Hohe Anforderungen an das Build System
+            - Compiler, Linting, SystemJS Builder
+          - Statisch typisierte Web-Entwicklung ist ungewohnt
+        </script>
+        <!--@formatter:on-->
+      </section>
+
+    </section>
+
+    <section>
+      <p>Roman Roelofsen</p>
+
+      <p>@romanroe</p>
+    </section>
+
+
+  </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+  // Full list of configuration options available at:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    slideNumber: true,
+    history: true,
+    center: true,
+
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+    // Optional reveal.js plugins
+    dependencies: [
+      {
+        src: 'lib/js/classList.js', condition: function () {
+        return !document.body.classList;
+      }
+      },
+      {
+        src: 'plugin/markdown/marked.js', condition: function () {
+        return !!document.querySelector('[data-markdown]');
+      }
+      },
+      {
+        src: 'plugin/markdown/markdown.js', condition: function () {
+        return !!document.querySelector('[data-markdown]');
+      }
+      },
+      {
+        src: 'plugin/highlight/highlight.js',
+        async: true,
+//        condition: function () {
+//          return !!document.querySelector('pre code');
+//        },
+        callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      },
+      {src: 'plugin/zoom-js/zoom.js', async: true},
+      {src: 'plugin/notes/notes.js', async: true}
+    ]
+  });
+
+</script>
+
+</body>
+</html>
