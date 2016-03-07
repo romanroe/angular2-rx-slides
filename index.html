@@ -66,10 +66,12 @@
       <section data-markdown>
         <!--@formatter:off-->
       <script type="text/template">
-        - Wenn der User auf den Button clickt,
-        - sende den Inhalt eines Textfeldes an den Server,
-        - nehme das Ergebnis der Anfrage entgegen,
-        - und stelle es dar.
+        - Stabil: Version 1.5
+        - Next: Version 2, beta
+
+        - Rich Client Framework für Web Apps
+        - 2-way Databinding
+        - Ab Version 2: **TypeScript**
       </script>
       <!--@formatter:on-->
       </section>
@@ -114,16 +116,16 @@
       <section data-markdown>
         <!--@formatter:off-->
       <script type="text/template">
-        #### asynchon / synchron
         - Web Apps sind Teil einer asychronen Umgebung
-          - Server Anfragen/Antworten, User, ...
         - Server-Logik wird zunehmend asynchron
-          - Web Sockets, Web Services, ...
+        - Asynchrone Programmierung wird sehr schwer, wenn die Anzahl der Datenströme wächst
 
         #### &nbsp;
         #### Frameworks, Bibliotheken helfen
         - z.B. Java's Future
-        - Besser: Guava's ListenableFuture
+        - Besser:
+          - Guava's ListenableFuture
+          - Promise
         - Noch besser: ReactiveX
       </script>
       <!--@formatter:on-->
@@ -163,23 +165,40 @@
       <!--@formatter:on-->
       </section>
 
+    </section>
+
+    <!-- Demo -->
+    <section>
+      <h3>Demo App</h3>
+
+      <section data-markdown>
+        <!--@formatter:off-->
+      <script type="text/template">
+        ![](demoapp.png)
+      </script>
+      <!--@formatter:on-->
+      </section>
 
     </section>
 
 
     <section>
-      <h3>Fazit</h3>
-      <section></section>
+      <h3>Angular/Rx aus Java-Sicht</h3>
 
       <section data-markdown>
         <!--@formatter:off-->
         <script type="text/template">
-          - Steile Lernkurve
-          - TypeScript vereint statische Typisierung mit der dynamischen JavaScript-Welt
-          - Module Loader müssen zur Laufzeit eingebunden sein (z.B. SystemJS)
-          - Hohe Anforderungen an das Build System
-            - Compiler, Linting, SystemJS Builder
-          - Statisch typisierte Web-Entwicklung ist ungewohnt
+          - Angular nutzt gewohnte Konstrukte
+            - Dependency Injection
+            - MVC
+
+          - TypeScript
+            - Endlich statische Typsierung im Client
+            - Java Klassen -> TypeScript Klassen Generator?
+
+          - ReactiveX
+            - RxJava
+
         </script>
         <!--@formatter:on-->
       </section>
